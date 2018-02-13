@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<csw:Capabilities xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:gml="http://www.opengis.net/gml" xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.2" xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd">
+<csw:Capabilities xmlns:csw="http://www.opengis.net/cat/csw/2.0.2" xmlns:gml="http://www.opengis.net/gml" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.2" xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd">
   <ows:ServiceIdentification>
     <ows:Title />
     <ows:Abstract />
     <ows:Keywords>
       <!-- Keywords are automatically added by GeoNetwork
-      according to catalogue content. -->
+            according to catalogue content. -->
+      <ows:Keyword>geoscientificInformation</ows:Keyword>
       <ows:Keyword>Earth Sciences</ows:Keyword>
       <ows:Keyword>GA Publication</ows:Keyword>
-      <ows:Keyword>Airborne Digital Data</ows:Keyword>
+      <ows:Keyword>imageryBaseMapsEarthCover</ows:Keyword>
+      <ows:Keyword>NCI</ows:Keyword>
       <ows:Keyword>Topology</ows:Keyword>
       <ows:Keyword>Topographic Map</ows:Keyword>
-      <ows:Keyword>NCI</ows:Keyword>
       <ows:Keyword>Record</ows:Keyword>
       <ows:Keyword>topography</ows:Keyword>
-      <ows:Keyword>AU</ows:Keyword>
-      <ows:Keyword>Geophysics</ows:Keyword>
+      <ows:Keyword>geophysics</ows:Keyword>
       <ows:Type>theme</ows:Type>
     </ows:Keywords>
     <ows:ServiceType>CSW</ows:ServiceType>
@@ -25,10 +25,10 @@
   </ows:ServiceIdentification>
   <ows:ServiceProvider>
     <ows:ProviderName>My organization</ows:ProviderName>
-    <ows:ProviderSite xlink:href="http://localhost:8080/geonetwork" />
+    <ows:ProviderSite xlink:href="https://ecat.ga.gov.au/geonetwork" />
     <ows:ServiceContact>
-      <ows:IndividualName>admin admin</ows:IndividualName>
-      <ows:PositionName>Administrator</ows:PositionName>
+      <ows:IndividualName />
+      <ows:PositionName />
       <ows:ContactInfo>
         <ows:Phone>
           <ows:Voice />
@@ -52,8 +52,8 @@
     <ows:Operation name="GetCapabilities">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
         </ows:HTTP>
       </ows:DCP>
       <ows:Parameter name="sections">
@@ -70,21 +70,23 @@
     <ows:Operation name="DescribeRecord">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
         </ows:HTTP>
       </ows:DCP>
+      <ows:Parameter name="typeName">
+        <ows:Value>csw:Record</ows:Value>
+        <ows:Value>gmd:MD_Metadata</ows:Value>
+      </ows:Parameter>
       <ows:Parameter name="outputFormat">
         <ows:Value>application/xml</ows:Value>
       </ows:Parameter>
       <ows:Parameter name="schemaLanguage">
         <ows:Value>http://www.w3.org/TR/xmlschema-1/</ows:Value>
       </ows:Parameter>
-      <ows:Parameter xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:gmd="http://www.isotc211.org/2005/gmd" name="outputSchema">
-        <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
-        <ows:Value>http://www.isotc211.org/2005/gfc</ows:Value>
-        <ows:Value>http://www.w3.org/ns/dcat#</ows:Value>
-        <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>
+      <ows:Parameter name="typeName">
+        <ows:Value>csw:Record</ows:Value>
+        <ows:Value>gmd:MD_Metadata</ows:Value>
       </ows:Parameter>
       <ows:Constraint name="PostEncoding">
         <ows:Value>XML</ows:Value>
@@ -94,16 +96,16 @@
     <ows:Operation name="GetDomain">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
         </ows:HTTP>
       </ows:DCP>
     </ows:Operation>
     <ows:Operation name="GetRecords">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
         </ows:HTTP>
       </ows:DCP>
       <!-- FIXME : Gets it from enum or conf -->
@@ -115,16 +117,13 @@
       <ows:Parameter name="outputFormat">
         <ows:Value>application/xml</ows:Value>
       </ows:Parameter>
-      <ows:Parameter xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:gmd="http://www.isotc211.org/2005/gmd" name="outputSchema">
+      <ows:Parameter name="outputSchema">
         <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
-        <ows:Value>http://www.isotc211.org/2005/gfc</ows:Value>
-        <ows:Value>http://www.w3.org/ns/dcat#</ows:Value>
         <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>
+        <ows:Value>http://standards.iso.org/iso/19115/-3/mdb/1.0</ows:Value>
       </ows:Parameter>
-      <ows:Parameter xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:gmd="http://www.isotc211.org/2005/gmd" name="typeNames">
+      <ows:Parameter name="typeNames">
         <ows:Value>csw:Record</ows:Value>
-        <ows:Value>gfc:FC_FeatureCatalogue</ows:Value>
-        <ows:Value>dcat</ows:Value>
         <ows:Value>gmd:MD_Metadata</ows:Value>
       </ows:Parameter>
       <ows:Parameter name="CONSTRAINTLANGUAGE">
@@ -157,6 +156,7 @@
         <ows:Value>Title</ows:Value>
         <ows:Value>CouplingType</ows:Value>
         <ows:Value>TopicCategory</ows:Value>
+        <ows:Value>AlternateIdentifier</ows:Value>
         <ows:Value>ParentIdentifier</ows:Value>
         <ows:Value>Subject</ows:Value>
         <ows:Value>ResourceLanguage</ows:Value>
@@ -191,15 +191,14 @@
     <ows:Operation name="GetRecordById">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw" />
         </ows:HTTP>
       </ows:DCP>
-      <ows:Parameter xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:gmd="http://www.isotc211.org/2005/gmd" name="outputSchema">
+      <ows:Parameter name="outputSchema">
         <ows:Value>http://www.opengis.net/cat/csw/2.0.2</ows:Value>
-        <ows:Value>http://www.isotc211.org/2005/gfc</ows:Value>
-        <ows:Value>http://www.w3.org/ns/dcat#</ows:Value>
         <ows:Value>http://www.isotc211.org/2005/gmd</ows:Value>
+        <ows:Value>http://standards.iso.org/iso/19115/-3/mdb/1.0</ows:Value>
       </ows:Parameter>
       <ows:Parameter name="outputFormat">
         <ows:Value>application/xml</ows:Value>
@@ -222,16 +221,16 @@
     <ows:Operation name="Transaction">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw-publication" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw-publication" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw-publication" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw-publication" />
         </ows:HTTP>
       </ows:DCP>
     </ows:Operation>
     <ows:Operation name="Harvest">
       <ows:DCP>
         <ows:HTTP>
-          <ows:Get xlink:href="http://localhost:8080/geonetwork/srv/eng/csw-publication" />
-          <ows:Post xlink:href="http://localhost:8080/geonetwork/srv/eng/csw-publication" />
+          <ows:Get xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw-publication" />
+          <ows:Post xlink:href="https://ecat.ga.gov.au/geonetwork/srv/eng/csw-publication" />
         </ows:HTTP>
       </ows:DCP>
       <ows:Parameter name="ResourceType">
@@ -270,9 +269,9 @@
         <ogc:SpatialOperator name="Within" />
         <ogc:SpatialOperator name="Contains" />
         <!--
-        <ogc:SpatialOperator name="Beyond"/>
-        <ogc:SpatialOperator name="DWithin"/>
-         The 'SpatialOperator' element can have a GeometryOperands child -->
+                <ogc:SpatialOperator name="Beyond"/>
+                <ogc:SpatialOperator name="DWithin"/>
+                 The 'SpatialOperator' element can have a GeometryOperands child -->
       </ogc:SpatialOperators>
     </ogc:Spatial_Capabilities>
     <ogc:Scalar_Capabilities>
